@@ -3,6 +3,7 @@
 // INICIO PRUEBAS DE ENVIO DE DATOS POST
 var formulario = document.getElementById('todo');
 
+<script src="{{ mix('js/app.js') }}"></script>
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -11,6 +12,12 @@ formulario.addEventListener('submit', function (e) {
     let datos =new FormData(formulario);
     console.log(datos);
     console.log(datos.get('nombre'));
+
+    fetch(route('ventas.guardar'),{
+        method: 'POST',
+        body: datos
+    })
+
 });
 
 

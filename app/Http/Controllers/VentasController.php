@@ -31,14 +31,14 @@ class VentasController extends Controller
     }
 
     public function guardar(Request $request){ 
-        $venta = new Ventas();
+       $venta = new Ventas();
         $venta->nombre = $request->nombre;
         $venta->grado = $request->grado;
         $venta->fecha = $request->fecha;
         $venta->telefono = $request->telefono;
         $venta->plan = $request->plan;
-        $venta->obsevaciones = $request->obsevaciones;
-        $venta->jj = $request->jj;
+        $venta->obsevaciones = $request->obsevaciones;  
+        
         return view('ventas/index',compact('venta'));
     }
     /**
