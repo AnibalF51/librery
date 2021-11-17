@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Ventas;
 use App\Models\Productos;
+use App\Models\Detalles;
 use Illuminate\Http\Request;
 
 class VentasController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -31,15 +33,63 @@ class VentasController extends Controller
     }
 
     public function guardar(Request $request){ 
-       $venta = new Ventas();
+        $venta = new Ventas();
         $venta->nombre = $request->nombre;
         $venta->grado = $request->grado;
         $venta->fecha = $request->fecha;
         $venta->telefono = $request->telefono;
         $venta->plan = $request->plan;
-        $venta->obsevaciones = $request->obsevaciones;  
+        $venta->observaciones = $request->observaciones; 
+        $venta->save();
         
-        return view('ventas/index',compact('venta'));
+        $fac = Ventas::all()->last();
+
+       $ten="id";
+       $a=0;
+        $tem="a";
+       while($a>=0){
+           $a=$a+1;
+           $tem=$ten.(string)$a;
+        if(($request->input($ten.(string)$a))!=null){
+
+            $deta = new Detalles();
+            $deta->ventaid = $fac->id;
+            $deta->proid = $request->input("id".(string)$a);
+            $deta->npro = $request->input("txt".(string)$a);
+            $deta->canpro = $request->input("cant".(string)$a);
+            $deta->preupro = $request->input("pu".(string)$a);
+            $deta->estpro = $request->input("est".(string)$a);
+            $deta->save();
+
+            /*
+  $table->integer('proid');
+            $table->string('npro');
+            $table->integer('canpro');
+            $table->integer('preupro');
+            $table->string('estpro');
+
+            echo $request->input("id".(string)$a);
+            echo $request->input("txt".(string)$a);
+            echo $request->input("cant".(string)$a);
+            echo $request->input("pu".(string)$a);
+            echo $request->input("tt".(string)$a);
+            echo $request->input("est".(string)$a);
+
+            */
+        }else{
+            $a=-1;
+        }
+        
+       }
+       return view('index');
+        /*
+        if($venta->nombre === '' || $venta->grado=== ''){
+            echo json_encode('error');
+        }else{
+            echo json_encode('Correcto: <br>Usuario:'.$venta->nombre.'<br>Pass:'.$venta->nombre);
+        }
+    */
+       // return view('ventas/index');
     }
     /**
      * Store a newly created resource in storage. 
@@ -96,4 +146,5 @@ class VentasController extends Controller
     {
         //
     }
+    
 }

@@ -5,6 +5,8 @@
 
 
 
+
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <form action="{{ route('ventas.guardar') }}" method="POST" enctype="multipart/form-data" id="todo">
@@ -72,7 +74,9 @@
                     </div>
                 </div>
 
-
+                <div class="mt-3" id="respuesta">
+            
+                </div>
                 <div class="row">
                     <div class="form-group col-sm-6" load="datos()">
                         <label>Buscar Producto</label>
@@ -130,7 +134,7 @@
                         <th>Precio/Unitario</th>
                         <th>Total</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        
                     </tr>
                 </thead>
                 <tbody id="prin">
@@ -155,7 +159,7 @@
                         <th>Precio/Unitario</th>
                         <th>Total</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        
 
                     </tr>
                 </tfoot>
@@ -168,4 +172,5 @@
 
 
     <script src="{{ asset('js/registros.js') }}"></script>
-@endsection
+    <script src="{{ asset('js/enviar.js') }}"></script>
+@endsection 

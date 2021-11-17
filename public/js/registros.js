@@ -1,24 +1,8 @@
 
 
 // INICIO PRUEBAS DE ENVIO DE DATOS POST
-var formulario = document.getElementById('todo');
 
-<script src="{{ mix('js/app.js') }}"></script>
 
-formulario.addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log('HOLA');
-
-    let datos =new FormData(formulario);
-    console.log(datos);
-    console.log(datos.get('nombre'));
-
-    fetch(route('ventas.guardar'),{
-        method: 'POST',
-        body: datos
-    })
-
-});
 
 
 
@@ -117,6 +101,22 @@ function guardar() {
 
 function nuevos() {
 
+
+    var myTableArray = [];
+
+    $("table#tableexample1 tr").each(function () {
+        var arrayOfThisRow = [];
+        var tableData = $(this).find('td');
+        if (tableData.length > 0) {
+            tableData.each(function () {
+                arrayOfThisRow.push($(this).text());
+            });
+            myTableArray.push(arrayOfThisRow);
+        }
+    });
+    let aa;
+    aa = myTableArray.length + 1;
+
     const $select = document.querySelector("#seleccion");
     const indice = $select.selectedIndex;
     if (indice === -1) return; // Esto es cuando no hay elementos
@@ -134,12 +134,15 @@ function nuevos() {
     let total = Number(opcionSeleccionada.value) * Number(cant.value);
 
     $('#prin').append(
-        "<tr class='rr'> <td class='tt'> " + opcionSeleccionada.id + "</td> <td class='tt'>" +
-        opcionSeleccionada.text + "</td>  <td class='tt'>" +
-        cant.value + "</td>  <td class='tt'>Q." + opcionSeleccionada.value + "</td>  <td class='tt'>Q." +
-        total + " </td>  <td class='tt'>" +
-        final.value +
-        "</td> <td class='tt'><a class='btn btn-danger' onclick='quitar()'><i class='fas fa-trash-alt'></i></a></td> </tr>"
+
+
+        "<tr class='rr'> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + opcionSeleccionada.id + "' id='id" + aa + "' name= 'id" + aa +
+        "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + opcionSeleccionada.text + "' id='txt" + aa + "' name= 'txt" + aa + 
+        "'></td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +  
+         "'</td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +  
+         "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
+         "' </td>  <td class='tt'><input type='text' class='form-control' readonly='readonly'  value='" + final.value + "' id='est" + aa + "' name= 'est" + aa +
+        "'</td>  </tr>"
     )
 }
 
@@ -184,6 +187,5 @@ function quitar() {
     
     ab.value = table;  */
 }
-
 
 
