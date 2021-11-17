@@ -41,3 +41,9 @@ Route::put('productos/update/{iden}', [ProductosController::class, 'update'])->n
 //VENTAS
 Route::get('ventas/registro', [VentasController::class,'create'])->name('ventas.registro'); 
 Route::post('ventas/guardar', [VentasController::class, 'guardar'])->name('ventas.guardar');
+Route::get('ventas/detalle', [VentasController::class,'detalle'])->name('ventas.detalle');
+Route::get('ventas/print/{id}', [VentasController::class, 'print'])->name('ventas.print');
+Route::get('ventas/list', [VentasController::class, 'list'])->name('ventas.list');
+Route::get('ventas/editar/{id}', [VentasController::class, 'editar'])->name('ventas.editar');
+Route::put('ventas/update/{iden}', [VentasController::class, 'update'])->name('ventas.update');
+Route::get('ventas/estado/{iden}', [VentasController::class, 'estado'])->name('ventas.estado');

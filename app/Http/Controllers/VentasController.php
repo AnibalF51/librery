@@ -32,6 +32,75 @@ class VentasController extends Controller
         return view('ventas/registro',compact('produc'));
     }
 
+
+    public function update(Request $request, $id){
+        $modVen = Ventas::findOrFail($id);
+        $modVen->nombre = $request->nombre;
+        $modVen->grado = $request->grado;
+        $modVen->fecha = $request->fecha;
+        $modVen->telefono = $request->telefono;
+        $modVen->plan = $request->plan;
+        $modVen->observaciones = $request->observaciones; 
+        $modVen->save();
+
+
+        $fac = Ventas::findOrFail($id);
+        $tab = Detalles::all();
+        $total=0;
+        foreach($tab as $tt){
+            if($tt->ventaid ==$id){
+                $total = $total +($tt->canpro * $tt->preupro);
+            }
+           
+        }
+   
+       return view('ventas.editar',compact('fac','tab','total'));
+
+        $ten="txt";
+       $a=0;
+        $tem="a";
+       while($a>=0){
+           $a=$a+1;
+           $tem=$ten.(string)$a;
+        if(($request->input($ten.(string)$a))!=null){
+            $modDet = Detalles::findOrFail($request->input((string)$a));
+            $modDet->estpro = $request->input("est".(string)$a);
+            $modDet->save();
+
+        }else{
+            $a=-1;
+        }
+        
+       }
+       $ven = Ventas::all();
+        return view('ventas.list', compact('ven'));
+
+    }
+
+    public function estado($id){
+        $modDet = Detalles::findOrFail($id);
+        if($modDet->estpro =="Pendiente"){
+            $modDet->estpro ="Entregado";
+        }else{
+            $modDet->estpro ="Pendiente";
+        }
+        $modDet->save();
+
+
+        $dd = Detalles::findOrFail($id);
+        $fac = Ventas::findOrFail($dd->ventaid);
+        $tab = Detalles::all();
+        $total=0;
+        foreach($tab as $tt){
+            if($tt->ventaid ==$id){
+                $total = $total +($tt->canpro * $tt->preupro);
+            }
+           
+        }
+   
+       return view('ventas.editar',compact('fac','tab','total'));
+    }
+
     public function guardar(Request $request){ 
         $venta = new Ventas();
         $venta->nombre = $request->nombre;
@@ -42,6 +111,9 @@ class VentasController extends Controller
         $venta->observaciones = $request->observaciones; 
         $venta->save();
         
+        
+
+
         $fac = Ventas::all()->last();
 
        $ten="id";
@@ -81,7 +153,8 @@ class VentasController extends Controller
         }
         
        }
-       return view('index');
+       $tab = Detalles::all();
+       return view('ventas/detalle',compact('fac','tab'));
         /*
         if($venta->nombre === '' || $venta->grado=== ''){
             echo json_encode('error');
@@ -97,9 +170,39 @@ class VentasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+     public function list(){
+        $ven = Ventas::all();
+        return view('ventas.list', compact('ven'));
+     }
+
+     public function editar($id){
+        $fac = Ventas::findOrFail($id);
+        $tab = Detalles::all();
+        $total=0;
+        foreach($tab as $tt){
+            if($tt->ventaid ==$id){
+                $total = $total +($tt->canpro * $tt->preupro);
+            }
+           
+        }
+   
+       return view('ventas.editar',compact('fac','tab','total'));
+     }
+
+    public function print($id)
     {
-        //
+        $fac = Ventas::findOrFail($id);
+        $tab = Detalles::all();
+        $total=0;
+        foreach($tab as $tt){
+            if($tt->ventaid ==$id){
+                $total = $total +($tt->canpro * $tt->preupro);
+            }
+           
+        }
+   
+       return view('ventas.print',compact('fac','tab','total'));
     }
 
     /**
@@ -131,10 +234,7 @@ class VentasController extends Controller
      * @param  \App\Models\Ventas  $ventas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ventas $ventas)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
