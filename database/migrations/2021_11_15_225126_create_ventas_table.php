@@ -16,11 +16,14 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');//VARCHAR 255
-            $table->string('grado')->nullable();
-            $table->date('fecha')->nullable();
+            $table->string('grado');
+            $table->date('fecha');
             $table->string('telefono')->nullable();
             $table->string('plan')->nullable();
             $table->text('observaciones')->nullable();
+            $table->string('estado');
+            $table->integer('total')->nullable();
+            $table->integer('usuario');
             $table->timestamps(); 
         });
     }

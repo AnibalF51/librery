@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PreU</title>
+    <title>Primicia</title>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,8 +30,21 @@
 <body>
 
     <div class="card-body">
-        <center><h3>PRIMICIA</h3></center>
-        <h4>3a. Avenida 8-32 Zona 10 Barrio La Libertad Coban, Alta Verapaz</h4>
+        <div class="row">
+            <div class="class=col-sm-9">
+                <center><h3>PRIMICIA</h3></center>
+                <h4>3a. Avenida 8-32 Zona 10 Barrio La Libertad Coban, Alta Verapaz</h4>
+            </div>
+            <div class="col-sm-2">
+                
+            </div>
+            <div class="col-sm-1">
+                <div class="d-flex justify-content-start">
+                    <img src="{{ asset('dist/img/prim.ico') }}" width="150px">
+                </div>
+            </div>
+        </div>
+        
         
         <div class="row">
             <p class="col-sm-5">ZOILA IMENA LOPEZ RODAS</p>
@@ -165,18 +178,7 @@
                                                 </tr>
                                             -->
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio/Unitario</th>
-                    <th>Total</th>
-                    <th>Estado</th>
-
-
-                </tr>
-            </tfoot>
+            
         </table>
         
         <div class="row">

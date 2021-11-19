@@ -28,16 +28,16 @@
 
                     <div class="form-group col-sm-4">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" id="nombre">
+                        <input type="text" name="nombre" class="form-control" id="nombre" required>
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="grado">Grado</label>
-                        <input type="text" name="grado" class="form-control" id="grado">
+                        <input type="text" name="grado" class="form-control" id="grado" required>
                     </div>
                     <div class="form-group col-sm-4">
                         <label>Fecha:</label>
                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="date" class="form-control datetimepicker-input" name="fecha" id="fecha">
+                            <input type="date" class="form-control datetimepicker-input" name="fecha" id="fecha" required>
 
                         </div>
                     </div>

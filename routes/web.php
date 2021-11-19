@@ -17,7 +17,7 @@ use App\Http\Controllers\VentasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 //USUARIOS
 Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
@@ -38,6 +38,9 @@ Route::post('productos/guardar', [ProductosController::class, 'guardar'])->name(
 Route::get('productos/editar/{iden}', [ProductosController::class, 'editar'])->name('productos.editar');
 Route::put('productos/update/{iden}', [ProductosController::class, 'update'])->name('productos.update');
 
+Route::get('productos/agregar/{iden}', [ProductosController::class, 'agregar'])->name('productos.agregar');
+Route::put('productos/actualizar/{iden}', [ProductosController::class, 'actualizar'])->name('productos.actualizar');
+
 //VENTAS
 Route::get('ventas/registro', [VentasController::class,'create'])->name('ventas.registro'); 
 Route::post('ventas/guardar', [VentasController::class, 'guardar'])->name('ventas.guardar');
@@ -47,3 +50,4 @@ Route::get('ventas/list', [VentasController::class, 'list'])->name('ventas.list'
 Route::get('ventas/editar/{id}', [VentasController::class, 'editar'])->name('ventas.editar');
 Route::put('ventas/update/{iden}', [VentasController::class, 'update'])->name('ventas.update');
 Route::get('ventas/estado/{iden}', [VentasController::class, 'estado'])->name('ventas.estado');
+Route::get('ventas/reportes', [VentasController::class, 'reportes'])->name('ventas.reportes');

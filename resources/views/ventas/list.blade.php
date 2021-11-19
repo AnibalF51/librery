@@ -25,6 +25,7 @@
                             <th>Grado</th>
                             <th>Fecha</th>
                             <th>Plan</th>
+                            <th>Total</th>
                             <th>Acciones</th>                                          
                         </tr>
                     </thead>
@@ -37,11 +38,11 @@
                                 <td>{{$ve->grado}}</td>
                                 <td>{{$ve->fecha}}</td>
                                 <td>{{$ve->plan}}</td>
-                                
+                                <td>Q. {{$ve->total}}</td>
                                 
                                 <td>
-                                    <a href="{{route('ventas.editar', $ve->id)}}" class="btn btn-warning"><i class="fas fa-user-edit"></i></a>
-                                    <a href="{{route('ventas.print', $ve->id)}}" target="_blank" class="btn btn-secondary"><i class="fas fa-print" ></i></a>
+                                    <a href="{{route('ventas.editar', $ve->id)}}" class="btn btn-warning" title="Editar"><i class="fas fa-user-edit"></i></a>
+                                    <a href="{{route('ventas.print', $ve->id)}}" target="_blank" class="btn btn-secondary"  title="Imprimir"><i class="fas fa-print" ></i></a>
                                 </td>
                             </tr>
                         @endforeach                                      
@@ -53,6 +54,7 @@
                             <th>Grado</th>
                             <th>Fecha</th>
                             <th>Plan</th>
+                            <th>Total</th>
                             <th>Acciones</th>                                            
                         </tr>
                     </tfoot>

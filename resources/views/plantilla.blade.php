@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PreU | @yield('titulo')</title>
+    <title>Primicia | @yield('titulo')</title>
 <!--
     <link rel="shortcut icon" href="images/icons/logo_black.ico">
 -->
@@ -54,7 +54,7 @@
             <a href="#" class="brand-link">
                <!-- <img src="dist/img/logo_white.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8"> -->
-                <span class="brand-text font-weight-light">PreUniversitario</span>
+                <span class="brand-text font-weight-light">Primicia</span>
             </a>
 
             <!-- Sidebar -->
@@ -120,6 +120,12 @@
                                         <p>Listado de Ventas</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('ventas.reportes')}}" class="nav-link">
+                                        <i class="fas fa-fw fa-file"></i>
+                                        <p>Reportes</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -152,7 +158,7 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2021 </strong>
-            / PreUniversitario
+            / PrimiZA
 
             <div class="float-right d-none d-sm-inline-block">
                 <b>Todos los derechos reservados.</b>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pingresos;
 use App\Models\Productos;
 use Illuminate\Http\Request;
 
@@ -99,6 +100,23 @@ class ProductosController extends Controller
         return view('productos.editar', compact('prodc'));
     }
 
+    public function agregar($id){
+        $prodc = Productos::findOrFail($id);
+        return view('productos.agregar', compact('prodc'));
+    }
+    public function actualizar(Request $request, $id){
+        $prod = Productos::findOrFail($id);
+        $prod->existencia =((integer)$prod->existencia)+((integer)($request->ingreso));
+        
+         
+        $regi = New Pingresos();
+        $regi->usuario = auth()->user()->id;
+        $regi->idproducto = $id;
+        $regi->cantidad =$request->ingreso;
+        $regi->save();
+        $prod->save();
+        return redirect()->route('productos.index');
+    }
 
     /**
      * Remove the specified resource from storage.

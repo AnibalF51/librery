@@ -9,7 +9,7 @@ class CreateDetallesTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
@@ -18,7 +18,7 @@ class CreateDetallesTable extends Migration
             $table->integer('ventaid');
             $table->integer('proid');
             $table->string('npro');
-            $table->integer('canpro');
+            $table->double('canpro');
             $table->integer('preupro');
             $table->string('estpro');
             $table->timestamps();

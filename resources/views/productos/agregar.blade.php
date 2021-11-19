@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-<form action="{{ route('productos.update', $prodc->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('productos.actualizar', $prodc->id) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
     @csrf
 
@@ -60,8 +60,8 @@
             </div><br>
 
           <div class="form-group">
-            <label for="existencia">Existencia</label>
-            <input type="text" name="existencia" class="form-control" id="existencia" readonly="readonly" value="{{$prodc->existencia}}">
+            <label for="ingreso">Ingreso</label>
+            <input type="text" name="ingreso" class="form-control" id="ingreso" >
         </div>
 
 
@@ -71,7 +71,7 @@
     </div>
     <!-- FIN DATOS CITAS -->
 
-    <button type="submit" class="btn btn-warning col-sm-12"><i class="fas fa-save"></i> Actualizar</button>
+    <button type="submit" class="btn btn-warning col-sm-12"><i class="fas fa-save"></i> Registrar</button>
 </form>
 
 

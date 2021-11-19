@@ -41,10 +41,10 @@
                                 <td>{{$product->existencia}}</td>
                                 
                                 <td>
-                                    <a href="{{route('productos.editar', $product->id)}}" class="btn btn-warning"><i class="fas fa-user-edit"></i></a>
-                                   
+                                    <a href="{{route('productos.editar', $product->id)}}" class="btn btn-warning" title="Editar"><i class="fas fa-user-edit"></i></a>
+                                    <a href="{{route('productos.agregar', $product->id)}}" class="btn btn-success" title="Ingreso de Producto"><i class="fas fa-plus-square"></i></a>
                                 </td>
-                            </tr>
+                            </tr> 
                         @endforeach                                      
                     </tbody>
                     <tfoot>
