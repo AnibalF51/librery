@@ -16,14 +16,11 @@ class ProductosController extends Controller
     public function index()
     {
         $produc = Productos::all();
+        
         return view('productos/index', compact('produc'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('productos/registro');

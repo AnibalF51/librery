@@ -51,3 +51,9 @@ Route::get('ventas/editar/{id}', [VentasController::class, 'editar'])->name('ven
 Route::put('ventas/update/{iden}', [VentasController::class, 'update'])->name('ventas.update');
 Route::get('ventas/estado/{iden}', [VentasController::class, 'estado'])->name('ventas.estado');
 Route::get('ventas/reportes', [VentasController::class, 'reportes'])->name('ventas.reportes');
+Route::get('ventas/ranular/{id}', [VentasController::class, 'ranular'])->name('ventas.ranular');
+Route::post('ventas/anular/{id}', [VentasController::class, 'anular'])->name('ventas.anular');
+
+//REPORTES
+Route::post('ventas/pdia', [VentasController::class, 'pdia'])->name('ventas.pdia');
+Route::post('ventas/prango', [VentasController::class, 'prango'])->name('ventas.prango');

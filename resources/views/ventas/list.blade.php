@@ -17,6 +17,7 @@
             
             <!-- /.card-header -->
             <div class="card-body">
+                
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -41,8 +42,13 @@
                                 <td>Q. {{$ve->total}}</td>
                                 
                                 <td>
+                                    @if ($ve->estado =="Activo")
                                     <a href="{{route('ventas.editar', $ve->id)}}" class="btn btn-warning" title="Editar"><i class="fas fa-user-edit"></i></a>
+                                    @endif
                                     <a href="{{route('ventas.print', $ve->id)}}" target="_blank" class="btn btn-secondary"  title="Imprimir"><i class="fas fa-print" ></i></a>
+                                    @if ($ve->estado =="Activo")
+                                    <a href="{{route('ventas.ranular', $ve->id)}}"  class="btn btn-danger"  title="Anular"><i class="fas fa-minus-square" ></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach                                      

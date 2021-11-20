@@ -32,7 +32,7 @@
     <div class="card-body">
         <div class="row">
             <div class="class=col-sm-9">
-                <center><h3>PRIMICIA</h3></center>
+                <h3>LIBRERIA PRIMICIA</h3>
                 <h4>3a. Avenida 8-32 Zona 10 Barrio La Libertad Coban, Alta Verapaz</h4>
             </div>
             <div class="col-sm-2">
@@ -47,7 +47,7 @@
         
         
         <div class="row">
-            <p class="col-sm-5">ZOILA IMENA LOPEZ RODAS</p>
+            
             <p class="col-sm-4">NIT. 29182395</p>
             <p class="col-sm-3">No. <b>{{ $fac->id }}</b> </p>
         </div>

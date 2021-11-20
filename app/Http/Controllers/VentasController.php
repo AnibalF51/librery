@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Adetalles;
 use App\Models\Ventas;
+use App\Models\User;
 use App\Models\Productos;
 use App\Models\Detalles;
-
+use App\Models\Anulars;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class VentasController extends Controller
@@ -22,12 +24,83 @@ class VentasController extends Controller
         //
     }
 
+    //ANULACION DE RECIBOS
+    public function anular(Request $request, $id)
+    {
+        //CREACION DEL REGISTRO DE LA ANULACION DEL RECIBO
+        $det = new Anulars();
+        $det->ventaid = $id;
+        $det->usuarioid = auth()->user()->id;
+        $det->razon = $request->razon;
+        $det->save();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        //REGISTRO DE ESTADO DEL RECIBOS
+        $ventt = Ventas::findOrFail($id);
+        $ventt->estado = "Anulado";
+        $ventt->save();
+        //MODIFICACION DE LA EXISTENCIA DEL PRODUCTO Y DEL ESTADO DEL DETALLE DEL RECIBO
+        $dett = DB::table('detalles')
+            ->where('ventaid', '=', $id)
+            ->get();
+
+        foreach ($dett as $d) {
+            if ($d->estpro == "Entregado") {
+                $pro = Productos::findOrFail($d->proid);
+                $pro->existencia = ((float)$pro->existencia) + ((float)$d->canpro);
+                $pro->save();
+            } else {
+                $temp = Detalles::findOrFail($d->id);
+                $temp->estpro = "Entregado";
+                $temp->save();
+            }
+        }
+
+        return redirect()->route('ventas.list');
+    }
+
+    //VISTA PARA LA DESCRIPCION DEL RECIBO
+    public function ranular($id)
+    {
+        $nue = Ventas::findOrFail($id);
+
+        return view('ventas/ranular', compact('nue'));
+    }
+
+    //IMPRESIONRE DE REPORTE POR DIA
+    public function pdia(Request $request)
+    {
+        $ven = DB::table('ventas')
+            ->where('fecha', '=', $request->fecha1)
+            ->get();
+        $us = User::all();
+        $tot = 0;
+        foreach ($ven as $ve) {
+            if ($ve->estado == "Activo") {
+                $tot = $tot + $ve->total;
+            }
+        }
+        $anu = Anulars::All();
+        return view('ventas/pdia', compact('ven', 'us', 'tot','anu'));
+    }
+
+    //IMPRESION DE REPORTE EN RANGO DE FECHA
+    public function prango(Request $request)
+    {
+        $fech = [$request->fecha2,  $request->fecha3];
+        $ven = DB::table('ventas')
+            ->whereBetween('fecha', [$request->fecha2,  $request->fecha3])
+            ->get();
+        $us = User::all();
+        $tot = 0;
+        foreach ($ven as $ve) {
+            if ($ve->estado == "Activo") {
+                $tot = $tot + $ve->total;
+            }
+        }
+        $anu = Anulars::All();
+        return view('ventas/prango', compact('ven', 'us', 'tot', 'fech','anu'));
+    }
+
     public function create()
     {
         $produc = Productos::all();
@@ -76,7 +149,7 @@ class VentasController extends Controller
         return view('ventas.list', compact('ven'));
     }
 
- 
+
 
     public function estado($id)
     {
@@ -84,15 +157,15 @@ class VentasController extends Controller
         $pro = Productos::findOrFail($modDet->proid);
         if ($modDet->estpro == "Pendiente") {
             $modDet->estpro = "Entregado";
-            
-            $cambio = New Adetalles();
+
+            $cambio = new Adetalles();
             $cambio->usuario = auth()->user()->id;
             $cambio->recibo = $modDet->ventaid;
             $cambio->producto = $modDet->npro;
             $cambio->cambio = "Entregado";
             $cambio->save();
 
-            $pro->existencia = ((double)$pro->existencia) - ((double)$modDet->canpro);
+            $pro->existencia = ((float)$pro->existencia) - ((float)$modDet->canpro);
             $pro->save();
         }
         $modDet->save();
@@ -108,7 +181,7 @@ class VentasController extends Controller
             }
         }
 
-        
+
         return view('ventas.editar', compact('fac', 'tab', 'total'));
     }
 
@@ -154,7 +227,7 @@ class VentasController extends Controller
                 $total = $total + ($request->input("cant" . (string)$a) * $request->input("pu" . (string)$a));
                 if (($request->input("est" . (string)$a)) == "Entregado") {
                     $proc = Productos::findOrFail($request->input("id" . (string)$a));
-                    $proc->existencia = ((double)$proc->existencia) - ((double)$request->input("cant" . (string)$a));
+                    $proc->existencia = ((float)$proc->existencia) - ((float)$request->input("cant" . (string)$a));
                     $proc->save();
                 }
                 $deta->save();
