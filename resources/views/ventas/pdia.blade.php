@@ -47,7 +47,7 @@
 
 
         <div class="row">
-            <p class="col-sm-5">Reporte correpondiate al dia: {{ $ven[1]->fecha }}</p>
+            <p class="col-sm-5">Reporte correpondiate al dia: {{ $ven[0]->fecha }}</p>
             <p class="col-sm-3">Generado por: <b>{{ auth()->user()->name }}</b> </p>
         </div>
 
@@ -59,7 +59,7 @@
 
     <div class=" card card-primary card-outline">
         <h2>Recibos Activos</h2>
-        <table id="tableexample1" class="table table-bordered table-striped ">
+        <table id="tableexample1" class="table table-sm ">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -108,7 +108,7 @@
 
     <div class=" card card-primary card-outline">
         <h2>Recibos Anulados</h2>
-        <table id="tableexample1" class="table table-bordered table-striped ">
+        <table id="tableexample1" class="table table-sm ">
             <thead>
                 <tr>
                     <th>ID</th>

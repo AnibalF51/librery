@@ -138,7 +138,7 @@
 
 
     <div class=" card card-primary card-outline">
-        <table id="tableexample1" class="table table-bordered table-striped ">
+        <table id="tableexample1" class="table table-sm ">
             <thead>
                 <tr>
                     <th>ID</th>

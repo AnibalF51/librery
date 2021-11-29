@@ -3,7 +3,9 @@
 // INICIO PRUEBAS DE ENVIO DE DATOS POST
 
 
-
+$(".js-example-tags").select2({
+    tags: true
+  });
 
 
 //-------------------------------------------------------------------------

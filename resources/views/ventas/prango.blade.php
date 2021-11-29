@@ -59,7 +59,7 @@
 
     <div class=" card card-primary card-outline">
         <h2>Recibos Activos</h2>
-        <table id="tableexample1" class="table table-bordered table-striped ">
+        <table id="tableexample1" class="table table-sm ">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -111,7 +111,7 @@
 
     <div class=" card card-primary card-outline">
         <h2>Recibos Anulados</h2>
-        <table id="tableexample1" class="table table-bordered table-striped ">
+        <table id="tableexample1" class="table table-sm ">
             <thead>
                 <tr>
                     <th>ID</th>
