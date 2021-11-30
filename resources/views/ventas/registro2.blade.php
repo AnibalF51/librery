@@ -1,9 +1,4 @@
 @extends('plantilla')
-
-@section('cabeza')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-@endsection
-
 @section('contenido')
 
 
@@ -11,8 +6,8 @@
 
 
 
-<meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos;; script-src &apos;self&apos; https://ajax.googleapis.com; style-src &apos;self&apos;; img-src &apos;self&apos; data:">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 
     <form action="{{ route('ventas.guardar') }}" method="POST" enctype="multipart/form-data" id="todo">
 
@@ -82,10 +77,10 @@
                 <div class="mt-3" id="respuesta">
 
                 </div>
-                <div class="row">
+                 <div class="row">
                     <div class="form-group col-sm-6" load="datos()">
                         <label>Buscar Producto</label>
-                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                        <select class="form-control js-example-basic-single " style="width: 100%;"
                             data-select2-id="1" tabindex="-1" aria-hidden="true" onchange="datos(this)" id="seleccion">
                             <option selected="selected" value="Seleccione una opcion">Seleccione una opcion</option>
                             @foreach ($produc as $product)
@@ -178,5 +173,5 @@
 
     <script src="{{ asset('js/registros.js') }}"></script>
     <script src="{{ asset('js/enviar.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 @endsection

@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     <label for="nompro">Nombre del producto</label>
-                    <input type="text" name="nompro" class="form-control" id="nompro">
+                    <input type="text" name="nompro" class="form-control" id="nompro" required>
                 </div>
 
 
@@ -57,14 +57,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Q</span>
                             </div>
-                            <input type="text" id="precio" name="precio" class="form-control">
+                            <input type="text" id="precio" name="precio" class="form-control" required>
                         </div>
                     </div>
                 </div><br>
 
                 <div class="form-group">
                     <label for="existencia">Existencia</label>
-                    <input type="text" name="existencia" class="form-control" id="existencia">
+                    <input type="text" name="existencia" class="form-control" id="existencia" required>
                 </div>
 
 

@@ -104,7 +104,7 @@ class VentasController extends Controller
     public function create()
     {
         $produc = Productos::all();
-        return view('ventas/registro', compact('produc'));
+        return view('ventas/registro2', compact('produc'));
     }
 
 

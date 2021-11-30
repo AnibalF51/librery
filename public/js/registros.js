@@ -2,11 +2,9 @@
 
 // INICIO PRUEBAS DE ENVIO DE DATOS POST
 
-
-$(".js-example-tags").select2({
-    tags: true
-  });
-
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
 
 //-------------------------------------------------------------------------
 
@@ -38,7 +36,7 @@ const opcionCambiada = () => {
     console.log("Cambio");
 };
 
-$select.addEventListener("change", opcionCambiada);
+$select.addEventListener("change", opcionCambiada)
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

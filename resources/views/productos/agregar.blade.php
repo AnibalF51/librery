@@ -61,7 +61,7 @@
 
           <div class="form-group">
             <label for="ingreso">Ingreso</label>
-            <input type="text" name="ingreso" class="form-control" id="ingreso" >
+            <input type="text" name="ingreso" class="form-control" id="ingreso" required>
         </div>
 
 
