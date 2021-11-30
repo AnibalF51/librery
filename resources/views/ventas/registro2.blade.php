@@ -1,14 +1,6 @@
 @extends('plantilla')
 @section('contenido')
 
-
-
-
-
-
-
-
-
     <form action="{{ route('ventas.guardar') }}" method="POST" enctype="multipart/form-data" id="todo">
 
         @csrf
