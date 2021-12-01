@@ -21,6 +21,7 @@ function datos(opcion) {
 
     inputNombre.value = opcionSeleccionada.value;
 
+   
 
     //ENVIO DEL ID
     /*
@@ -121,6 +122,7 @@ function nuevos() {
     const indice = $select.selectedIndex;
     if (indice === -1) return; // Esto es cuando no hay elementos
     const opcionSeleccionada = $select.options[indice];
+    const nass = opcionSeleccionada.est;
     //alert(`Texto: ${opcionSeleccionada.text}. Valor: ${opcionSeleccionada.value}`);
     //ESTADO DE PRODUCTO
     const $sel = document.querySelector("#estado");
@@ -133,11 +135,19 @@ function nuevos() {
 
     let total = Number(opcionSeleccionada.value) * Number(cant.value);
 
+    
+
+    const splitString = (opcionSeleccionada.text).split(":");
+
+    //alert(splitString);
+
+
+
     $('#prin').append(
 
 
-        "<tr class='rr'> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + opcionSeleccionada.id + "' id='id" + aa + "' name= 'id" + aa +
-        "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + opcionSeleccionada.text + "' id='txt" + aa + "' name= 'txt" + aa + 
+        "<tr class='rr'> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + splitString[0] + "' id='id" + aa + "' name= 'id" + aa +
+        "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + splitString[1] + "' id='txt" + aa + "' name= 'txt" + aa + 
         "'></td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +  
          "'</td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +  
          "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +

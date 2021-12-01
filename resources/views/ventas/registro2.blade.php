@@ -77,8 +77,7 @@
                             <option selected="selected" value="Seleccione una opcion">Seleccione una opcion</option>
                             @foreach ($produc as $product)
                                 <option data-select2-id="{{ $product->nombre }}" id="{{ $product->id }}"
-                                    value="{{ $product->precio }}">
-                                    {{ $product->nombre }}</option>
+                                    value="{{ $product->precio }}"> {{ $product->nombre }}</option>
                             @endforeach
                         </select>
 
