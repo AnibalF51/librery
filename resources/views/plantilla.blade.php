@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Primicia | @yield('titulo')</title>
-<!--
+
+    <!--
     <link rel="shortcut icon" href="images/icons/logo_black.ico">
 -->
     <!-- Google Font: Source Sans Pro -->
@@ -22,9 +23,9 @@
 
     <!-- Ekko Lightbox -->
     <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
-<!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- dropify -->
     <link rel="stylesheet" href="path-to/node_modules/dropify/dist/css/dropify.min.css">
 </head>
@@ -36,10 +37,11 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{route("dashboard")}}" class="nav-link">Inicio</a>
+                    <a href="{{ route('dashboard') }}" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Acerca de</a>
@@ -52,7 +54,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-               <!-- <img src="dist/img/logo_white.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                <!-- <img src="dist/img/logo_white.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8"> -->
                 <span class="brand-text font-weight-light">Primicia</span>
             </a>
@@ -65,7 +67,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>  -->
                     <div class="info">
-                        <a href="{{route('profile')}}" class="d-block">{{ auth()->user()->name }}</a>
+                        <a href="{{ route('profile') }}" class="d-block">{{ auth()->user()->name }}</a>
                     </div>
                 </div>
 
@@ -85,20 +87,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{route('productos.registro')}}" class="nav-link">
+                                    <a href="{{ route('productos.registro') }}" class="nav-link">
                                         <i class="fas fa-fw fa-pen"></i>
                                         <p>Registro</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('productos.index')}}" class="nav-link ">
+                                    <a href="{{ route('productos.index') }}" class="nav-link ">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Productos</p>
                                     </a>
                                 </li>
+
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item ">
                             <a href="#" class="nav-link ">
                                 <i class="fas fa-fw fa-shopping-cart"></i>
@@ -109,38 +112,56 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{route('ventas.registro')}}" class="nav-link">
+                                    <a href="{{ route('ventas.registro') }}" class="nav-link">
                                         <i class="fas fa-fw fa-pen"></i>
                                         <p>Registro</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('ventas.list')}}" class="nav-link">
+                                    <a href="{{ route('ventas.list') }}" class="nav-link">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Ventas</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a href="{{route('ventas.list')}}" class="nav-link">
-                                        <i class="fas fa-fw fa-clipboard-list"></i>
-                                        <p>Cambios</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('ventas.reportes')}}" class="nav-link">
+                                    <a href="{{ route('ventas.reportes') }}" class="nav-link">
                                         <i class="fas fa-fw fa-file"></i>
                                         <p>Reportes</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-fw fa-exchange-alt"></i>
+                                <p>
+                                    Cambios
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('cambios.registro') }}" class="nav-link">
+                                        <i class="fas fa-fw fa-pen"></i>
+                                        <p>Registro</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('cambios.list') }}" class="nav-link">
+                                        <i class="fas fa-fw fa-clipboard-list"></i>
+                                        <p>Listado de Ventas</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
-                            <a href="{{route('logout')}}" class="nav-link">
-                              <i class="nav-icon fas fa-power-off"></i>
-                              <p>Salir</p>
+                            <a href="{{ route('logout') }}" class="nav-link">
+                                <i class="nav-icon fas fa-power-off"></i>
+                                <p>Salir</p>
                             </a>
-                        </li>        
+                        </li>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -178,9 +199,9 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    
-     <!-- jQuery -->
-     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- DataTables  & Plugins -->
@@ -201,7 +222,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- Page specific script -->
-    
+
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <!-- Filterizr-->
     <script src="{{ asset('plugins/filterizr/jquery.filterizr.min.js') }}"></script>
@@ -212,16 +233,20 @@
     <script type="{{ asset('asset/js/dropify.min.js') }}"></script>
 
 
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js') }}"></script>
+    <script
+        src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js') }}">
+    </script>
 
 
     <!-- CHOSEN -->
-    
+
 
     <script>
-        $(function () {
+        $(function() {
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -234,105 +259,111 @@
                 "responsive": true,
             });
 
-            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
                 event.preventDefault();
                 $(this).ekkoLightbox({
                     alwaysShowClose: true
                 });
             });
 
-            
-            $('.btn[data-filter]').on('click', function () {
+
+            $('.btn[data-filter]').on('click', function() {
                 $('.btn[data-filter]').removeClass('active');
                 $(this).addClass('active');
             });
 
-            $(document).ready(function(){
-		        $('.dropify')
-	        });
+            $(document).ready(function() {
+                $('.dropify')
+            });
         });
     </script>
 
-<script>
-    $(function () {
-      //Initialize Select2 Elements
-      $('.select2').select2()
-  
-      //Initialize Select2 Elements
-      $('.select2').select2({
-        theme: 'bootstrap4'
-      })
-  
-      //Datemask dd/mm/yyyy
-      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-      //Datemask2 mm/dd/yyyy
-      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-      //Money Euro
-      $('[data-mask]').inputmask()
-  
-      //Date picker
-      $('#reservationdate').datetimepicker({
-          format: 'L'
-      });
-  
-      //Date and time picker
-      $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
-  
-      //Date range picker
-      $('#reservation').daterangepicker()
-      //Date range picker with time picker
-      $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'MM/DD/YYYY hh:mm A'
-        }
-      })
-      //Date range as a button
-      $('#daterange-btn').daterangepicker(
-        {
-          ranges   : {
-            'Today'       : [moment(), moment()],
-            'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-            'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate  : moment()
-        },
-        function (start, end) {
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-      )
-  
-      //Timepicker
-      $('#timepicker').datetimepicker({
-        format: 'LT'
-      })
-  
-      //Bootstrap Duallistbox
-      $('.duallistbox').bootstrapDualListbox()
-  
-      //Colorpicker
-      $('.my-colorpicker1').colorpicker()
-      //color picker with addon
-      $('.my-colorpicker2').colorpicker()
-  
-      $('.my-colorpicker2').on('colorpickerChange', function(event) {
-        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-      })
-  
-      $("input[data-bootstrap-switch]").each(function(){
-        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-      })
-  
-    })
+    <script>
+        $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
 
-  
-   
-  </script>
+            //Initialize Select2 Elements
+            $('.select2').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+
+            //Date and time picker
+            $('#reservationdatetime').datetimepicker({
+                icons: {
+                    time: 'far fa-clock'
+                }
+            });
+
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker({
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                            'month').endOf('month')]
+                    },
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment()
+                },
+                function(start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                        'MMMM D, YYYY'))
+                }
+            )
+
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            })
+
+            //Bootstrap Duallistbox
+            $('.duallistbox').bootstrapDualListbox()
+
+            //Colorpicker
+            $('.my-colorpicker1').colorpicker()
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker()
+
+            $('.my-colorpicker2').on('colorpickerChange', function(event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            })
+
+            $("input[data-bootstrap-switch]").each(function() {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            })
+
+        })
+    </script>
 </body>
 
 </html>

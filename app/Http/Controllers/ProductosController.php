@@ -20,7 +20,8 @@ class ProductosController extends Controller
         return view('productos/index', compact('produc'));
     }
 
-    
+  
+
     public function create()
     {
         return view('productos/registro');

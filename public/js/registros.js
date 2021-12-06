@@ -148,8 +148,8 @@ function nuevos() {
 
         "<tr class='rr'> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + splitString[0] + "' id='id" + aa + "' name= 'id" + aa +
         "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + splitString[1] + "' id='txt" + aa + "' name= 'txt" + aa + 
-        "'></td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +  
-         "'</td>  <td class='tt'><input type='text' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +  
+        "'></td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +  
+         "'</td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +  
          "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
          "' </td>  <td class='tt'><input type='text' class='form-control' readonly='readonly'  value='" + final.value + "' id='est" + aa + "' name= 'est" + aa +
         "'</td>  </tr>"

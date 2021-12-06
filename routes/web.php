@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VentasController;
+use App\Http\Controllers\CambiosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::put('productos/update/{iden}', [ProductosController::class, 'update'])->n
 Route::get('productos/agregar/{iden}', [ProductosController::class, 'agregar'])->name('productos.agregar');
 Route::put('productos/actualizar/{iden}', [ProductosController::class, 'actualizar'])->name('productos.actualizar');
 
+
 //VENTAS
 Route::get('ventas/registro', [VentasController::class,'create'])->name('ventas.registro'); 
 Route::post('ventas/guardar', [VentasController::class, 'guardar'])->name('ventas.guardar');
@@ -57,3 +59,8 @@ Route::post('ventas/anular/{id}', [VentasController::class, 'anular'])->name('ve
 //REPORTES
 Route::post('ventas/pdia', [VentasController::class, 'pdia'])->name('ventas.pdia');
 Route::post('ventas/prango', [VentasController::class, 'prango'])->name('ventas.prango');
+
+//CAMBIOS
+Route::get('cambios/list', [CambiosController::class, 'list'])->name('cambios.list');
+Route::get('cambios/registro', [CambiosController::class, 'registro'])->name('cambios.registro');
+Route::post('cambios/guardar', [CambiosController::class, 'guardar'])->name('cambios.guardar');
