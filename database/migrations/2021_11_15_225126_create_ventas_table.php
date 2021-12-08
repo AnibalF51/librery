@@ -22,12 +22,12 @@ class CreateVentasTable extends Migration
             $table->string('plan')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('estado');
-            $table->integer('total')->nullable();
+            $table->double('total')->nullable();
             $table->integer('usuario');
             $table->timestamps(); 
         });
     }
- 
+  
     /**
      * Reverse the migrations.
      *

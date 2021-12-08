@@ -66,13 +66,14 @@
                     <th>Nombre</th>
                     <th>Grado</th>
                     <th>Dependiente</th>
+                    <th>Total Abonado</th>
                     <th>Total</th>
 
                 </tr>
             </thead>
             <tbody id="prin">
 
-                @foreach ($ven as $ve)
+                @foreach ($ven as $ve) 
                     @if ($ve->estado == 'Activo')
                         <tr>
                             <td>{{ $ve->id }}</td>
@@ -83,6 +84,7 @@
                                     <td>{{ $use->name }}</td>
                                 @endif
                             @endforeach
+                            <td>Q. {{ $ve->abono }}</td>
                             <td>Q.{{ $ve->total }} </td>
 
                         </tr>
@@ -116,6 +118,7 @@
                     <th>Grado</th>
                     <th>Generado por</th>
                     <th>Anulado por</th>
+
                     <th>Total</th>
 
                 </tr> 

@@ -55,6 +55,9 @@ Route::get('ventas/estado/{iden}', [VentasController::class, 'estado'])->name('v
 Route::get('ventas/reportes', [VentasController::class, 'reportes'])->name('ventas.reportes');
 Route::get('ventas/ranular/{id}', [VentasController::class, 'ranular'])->name('ventas.ranular');
 Route::post('ventas/anular/{id}', [VentasController::class, 'anular'])->name('ventas.anular');
+Route::get('ventas/abonos/{id}', [VentasController::class, 'abono'])->name('ventas.abono');
+Route::post('ventas/gabono/{id}', [VentasController::class, 'gabono'])->name('ventas.gabono');
+Route::get('ventas/labono', [VentasController::class, 'labono'])->name('ventas.labono');
 
 //REPORTES
 Route::post('ventas/pdia', [VentasController::class, 'pdia'])->name('ventas.pdia');

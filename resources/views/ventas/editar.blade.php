@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-4">
                                         <label>No. Telefono</label>
 
                                         <div class="input-group">
@@ -55,7 +55,7 @@
                                         <!-- /.input group -->
                                     </div>
 
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-4">
                                         <label for="plan">Plan</label>
                                         <select name="plan" id="plan" value="{{ old('plan') }}" disabled
                                             class="form-control">
@@ -63,6 +63,17 @@
                                             <option value="Diario">Diario</option>
                                             <option value="Fin de Semana">Fin de Semana</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label>Abono</label>
+                    
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                                            </div>
+                                            <input type="number" class="form-control" id="abono" name="abono" value="{{ $fac->abono }}" readonly="readonly">
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -85,7 +96,6 @@
                         </div>
                         <!-- /.card-body -->
 
-                        <!-- FIN DATOS CITAS -->
 
 
                         <div class=" card card-primary card-outline">

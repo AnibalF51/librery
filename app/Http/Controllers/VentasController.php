@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Productos;
 use App\Models\Detalles;
 use App\Models\Anulars;
+use App\Models\Abonos;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -75,8 +76,8 @@ class VentasController extends Controller
         $us = User::all();
         $tot = 0;
         foreach ($ven as $ve) {
-            if ($ve->estado == "Activo") {
-                $tot = $tot + $ve->total;
+            if ($ve->estado == "Activo") { 
+                    $tot = $tot + $ve->abono;
             }
         }
         $anu = Anulars::All();
@@ -94,7 +95,7 @@ class VentasController extends Controller
         $tot = 0;
         foreach ($ven as $ve) {
             if ($ve->estado == "Activo") {
-                $tot = $tot + $ve->total;
+                $tot = $tot + $ve->abono;
             }
         }
         $anu = Anulars::All();
@@ -202,12 +203,24 @@ class VentasController extends Controller
         $venta->estado = "Activo";
         $venta->total = 0;
         $venta->usuario = auth()->user()->id;
+        $venta->abono = $request->abono;
         $venta->save();
 
-
-
-
+        //REGISTRO DE ABONO
         $fac = Ventas::all()->last();
+       if($request->abono != 0){
+        $ab = New Abonos();
+        $ab->idfac = $fac->id;
+        $ab->nombre =$fac->nombre;
+        $ab->usuario = auth()->user()->id;
+        $ab->abono = $request->abono;
+        $ab->save();
+       }
+        //FIN DE REGISTRO DE ABONO
+        
+       
+
+        
         $total = 0;
         $ten = "id";
         $a = 0;
@@ -256,6 +269,16 @@ class VentasController extends Controller
 
         $modVen = Ventas::findOrFail($fac->id);
         $modVen->total = $total;
+        if($modVen->abono == 0){
+            $modVen->abono = $total;
+
+            $ab = New Abonos();
+            $ab->idfac = $fac->id;
+            $ab->nombre =$fac->nombre;
+            $ab->usuario = auth()->user()->id;
+            $ab->abono = $total;
+            $ab->save();
+        }
         $modVen->save();
 
         $tab = Detalles::all();
@@ -281,6 +304,12 @@ class VentasController extends Controller
         $ven = Ventas::all();
         return view('ventas.list', compact('ven'));
     }
+    public function labono()
+    {
+        $abb = Abonos::all();
+        $us = User::all();
+        return view('ventas.labono', compact('abb', 'us'));
+    }
 
     public function editar($id)
     {
@@ -294,6 +323,35 @@ class VentasController extends Controller
         }
 
         return view('ventas.editar', compact('fac', 'tab', 'total'));
+    }
+    public function abono($id)
+    {
+        $fac = Ventas::findOrFail($id);
+        $tab = Detalles::all();
+        $total = 0;
+        foreach ($tab as $tt) {
+            if ($tt->ventaid == $id) {
+                $total = $total + ($tt->canpro * $tt->preupro);
+            }
+        }
+
+        return view('ventas.abono', compact('fac', 'total'));
+    }
+
+    public function gabono(Request $request, $id){
+        $ab = New Abonos();
+        $ab->idfac = $id;
+        $ab->nombre = $request->nombre;
+        $ab->usuario = auth()->user()->id;
+        $ab->abono = $request->abs;
+
+        $agbono = Ventas::findOrFail($id);
+        $agbono->abono = (((double) $agbono->abono)+((double) $request->abs));
+        $agbono->save();
+        $ab->save();
+
+        return redirect()->route('ventas.list');
+
     }
 
     public function print($id)

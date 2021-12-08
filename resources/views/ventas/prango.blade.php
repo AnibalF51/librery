@@ -67,6 +67,7 @@
                     <th>Grado</th>
                     <th>Dependiente</th>
                     <th>Fecha</th>
+                    <th>Total Abonado</th>
                     <th>Total</th>
 
                 </tr>
@@ -85,6 +86,7 @@
                                 @endif
                             @endforeach
                             <td>{{ $ve->fecha }}</td>
+                            <td>Q. {{ $ve->abono }}</td>
                             <td>Q.{{ $ve->total }} </td>
 
                         </tr>

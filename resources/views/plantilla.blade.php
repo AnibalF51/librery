@@ -123,6 +123,12 @@
                                         <p>Listado de Ventas</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('ventas.labono') }}" class="nav-link">
+                                        <i class="fas fa-fw fa-clipboard-list"></i>
+                                        <p>Listado de Abonos</p>
+                                    </a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('ventas.reportes') }}" class="nav-link">
@@ -150,7 +156,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('cambios.list') }}" class="nav-link">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
-                                        <p>Listado de Ventas</p>
+                                        <p>Listado de Cambios</p>
                                     </a>
                                 </li>
                             </ul>

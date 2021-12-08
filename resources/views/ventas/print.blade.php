@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4">
                     <label>No. Telefono</label>
 
                     <div class="input-group">
@@ -102,7 +102,7 @@
                     <!-- /.input group -->
                 </div>
 
-                <div class="form-group col-sm-6">
+                <div class="form-group col-sm-4">
                     <label for="plan">Plan</label>
                     <select name="plan" id="plan" value="{{ old('plan') }}" class="form-control" readonly="readonly"
                         disabled>
@@ -110,6 +110,17 @@
                         <option value="Diario" readonly="readonly">Diario</option>
                         <option value="Fin de Semana" readonly="readonly">Fin de Semana</option>
                     </select>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Total Abono</label>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                        </div>
+                        <input type="number" class="form-control" id="abono" name="abono" value="{{ $fac->abono }}" readonly="readonly">
+                    </div>
+                    <!-- /.input group -->
                 </div>
             </div>
             @if ($fac->observaciones != '')
@@ -185,8 +196,13 @@
             
             <label for="Total" class="col-sm-9"><h3> Total</h3> </label>
             <label for="Total" class="col-sm-3"><h3> Q.{{$total}}</h3> </label>
-            
         </div>
+        @if (($fac->abono) > 0)
+        <div class="row">
+            <label for="Total" class="col-sm-9"><h5> Total pendiente  Q.{{$total - $fac->abono}}</h5> </label>
+        </div>
+        @endif
+       
         <hr>
     </div>
     </div>
