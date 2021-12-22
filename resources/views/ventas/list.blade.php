@@ -42,9 +42,9 @@
                                             <td>{{ $ve->plan }}</td>
                                             <td>
                                                 @if ($ve->abono != 0)
-                                                Q. {{ $ve->abono }}
+                                                    Q. {{ $ve->abono }}
                                                 @else
-                                                Q. {{ $ve->total }}
+                                                    Q. {{ $ve->total }}
                                                 @endif
                                             </td>
                                             <td>Q. {{ $ve->total }}</td>
@@ -58,12 +58,16 @@
                                                     class="btn btn-secondary" title="Imprimir"><i
                                                         class="fas fa-print"></i></a>
                                                 @if ($ve->estado == 'Activo')
-                                                    <a href="{{ route('ventas.ranular', $ve->id) }}" class="btn btn-danger"
-                                                        title="Anular"><i class="fas fa-minus-square"></i></a>
+                                                    <a href="{{ route('ventas.ranular', $ve->id) }}"
+                                                        class="btn btn-danger" title="Anular"><i
+                                                            class="fas fa-minus-square"></i></a>
                                                 @endif
-                                                @if ((($ve->abono) < ($ve->total)) && (($ve->abono) >0))
-                                                <a href="{{ route('ventas.abono', $ve->id) }}" class="btn btn-success"
-                                                    title="Abonar"><i class="fas fa-money-bill-wave"></i></a>
+                                                @if ($ve->estado == 'Activo')
+                                                    @if ($ve->abono < $ve->total && $ve->abono > 0)
+                                                        <a href="{{ route('ventas.abono', $ve->id) }}"
+                                                            class="btn btn-success" title="Abonar"><i
+                                                                class="fas fa-money-bill-wave"></i></a>
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>

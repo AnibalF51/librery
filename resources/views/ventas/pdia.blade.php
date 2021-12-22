@@ -109,6 +109,54 @@
     </div>
 
     <div class=" card card-primary card-outline">
+        <h2>Abonos</h2>
+        <table id="tableexample1" class="table table-sm ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>No. Factura</th>
+                    <th>Nombre</th>
+                    <th>Dependiente</th>
+                    <th>Abono</th>
+
+                </tr>
+            </thead>
+            <tbody id="prin">
+
+                @foreach ($abs as $ab) 
+                        <tr>
+                            <td>{{ $ab->id }}</td>
+                            <td>{{ $ab->idfac }}</td>
+                            <td>{{ $ab->nombre }}</td>
+                            @foreach ($us as $use)
+                                @if ($use->id == $ab->usuario)
+                                    <td>{{ $use->name }}</td>
+                                @endif
+                            @endforeach
+                            <td>Q. {{ $ab->abono }}</td>
+                            
+
+                        </tr>
+                @endforeach
+
+            </tbody>
+
+        </table>
+        <div class="row">
+
+            <label for="Total" class="col-sm-9">
+                <h3> Total</h3>
+            </label>
+            <label for="Total" class="col-sm-3">
+                <h3> Q.{{ $tot2 }}</h3>
+            </label>
+
+        </div>
+
+        <hr>
+    </div>
+
+    <div class=" card card-primary card-outline">
         <h2>Recibos Anulados</h2>
         <table id="tableexample1" class="table table-sm ">
             <thead>

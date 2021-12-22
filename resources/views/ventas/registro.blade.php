@@ -2,7 +2,7 @@
 @section('contenido')
 
 
-
+ 
 
 
     <section class="content">
@@ -73,11 +73,14 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
                                             </div>
-                                            <input type="number" class="form-control" id="abono" name="abono" value="0">
+                                            <input type="number" class="form-control" id="abono" name="abono" value="0" min="0">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                 </div>
+                                <!--OCULTAR ELEMENTOS
+                                style="visibility:hidden;"
+                             -->
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -124,6 +127,7 @@
                                         <label for="estado">Estado</label>
                                         <select name="estado" id="estado" value="{{ old('estado') }}"
                                             class="form-control">
+                                            
                                             <option value="Entregado">Entregado</option>
                                             <option value="Pendiente">Pendiente</option>
                                         </select>
@@ -147,6 +151,7 @@
                             <table id="tableexample1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Estado </th>
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Cantidad</th>
@@ -172,6 +177,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>Estado</th>
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Cantidad</th>

@@ -73,15 +73,22 @@ class VentasController extends Controller
         $ven = DB::table('ventas')
             ->where('fecha', '=', $request->fecha1)
             ->get();
+            $abs = DB::table('abonos')
+            ->where('created_at', '=', $request->fecha1)
+            ->get();
         $us = User::all();
         $tot = 0;
+        $tot2 = 0;
         foreach ($ven as $ve) {
             if ($ve->estado == "Activo") { 
                     $tot = $tot + $ve->abono;
             }
         }
+        foreach ($abs as $ab) {      
+                    $tot2 = $tot2 + $ab->abono;
+        }
         $anu = Anulars::All();
-        return view('ventas/pdia', compact('ven', 'us', 'tot','anu'));
+        return view('ventas/pdia', compact('ven', 'us', 'tot','anu', 'tot2', 'abs'));
     }
 
     //IMPRESION DE REPORTE EN RANGO DE FECHA
@@ -193,6 +200,7 @@ class VentasController extends Controller
 
     public function guardar(Request $request)
     {
+        
         $venta = new Ventas();
         $venta->nombre = $request->nombre;
         $venta->grado = $request->grado;
@@ -230,38 +238,24 @@ class VentasController extends Controller
             $tem = $ten . (string)$a;
             if (($request->input($ten . (string)$a)) != null) {
 
-                $deta = new Detalles();
-                $deta->ventaid = $fac->id;
-                $deta->proid = $request->input("id" . (string)$a);
-                $deta->npro = $request->input("txt" . (string)$a);
-                $deta->canpro = $request->input("cant" . (string)$a);
-                $deta->preupro = $request->input("pu" . (string)$a);
-                $deta->estpro = $request->input("est" . (string)$a);
-                $total = $total + ($request->input("cant" . (string)$a) * $request->input("pu" . (string)$a));
-                if (($request->input("est" . (string)$a)) == "Entregado") {
-                    $proc = Productos::findOrFail($request->input("id" . (string)$a));
-                    $proc->existencia = ((float)$proc->existencia) - ((float)$request->input("cant" . (string)$a));
-                    $proc->save();
+                if(($request->input("aa" . (string)$a))==true){
+                    $deta = new Detalles();
+                    $deta->ventaid = $fac->id;
+                    $deta->proid = $request->input("id" . (string)$a);
+                    $deta->npro = $request->input("txt" . (string)$a);
+                    $deta->canpro = $request->input("cant" . (string)$a);
+                    $deta->preupro = $request->input("pu" . (string)$a);
+                    $deta->estpro = $request->input("est" . (string)$a);
+                    $total = $total + ($request->input("cant" . (string)$a) * $request->input("pu" . (string)$a));
+                    if (($request->input("est" . (string)$a)) == "Entregado") {
+                        $proc = Productos::findOrFail($request->input("id" . (string)$a));
+                        $proc->existencia = ((float)$proc->existencia) - ((float)$request->input("cant" . (string)$a));
+                        $proc->save();
+                    }
+                    $deta->save();
                 }
-                $deta->save();
+               
 
-
-
-                /*
-  $table->integer('proid');
-            $table->string('npro');
-            $table->integer('canpro');
-            $table->integer('preupro');
-            $table->string('estpro');
-
-            echo $request->input("id".(string)$a);
-            echo $request->input("txt".(string)$a);
-            echo $request->input("cant".(string)$a);
-            echo $request->input("pu".(string)$a);
-            echo $request->input("tt".(string)$a);
-            echo $request->input("est".(string)$a);
-
-            */
             } else {
                 $a = -1;
             }

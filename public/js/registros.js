@@ -1,5 +1,3 @@
-
-
 // INICIO PRUEBAS DE ENVIO DE DATOS POST
 
 $(document).ready(function() {
@@ -21,7 +19,7 @@ function datos(opcion) {
 
     inputNombre.value = opcionSeleccionada.value;
 
-   
+
 
     //ENVIO DEL ID
     /*
@@ -49,11 +47,11 @@ $.ajaxSetup({
 function guardar() {
     var myTableArray = [];
 
-    $("table#tableexample1 tr").each(function () {
+    $("table#tableexample1 tr").each(function() {
         var arrayOfThisRow = [];
         var tableData = $(this).find('td');
         if (tableData.length > 0) {
-            tableData.each(function () {
+            tableData.each(function() {
                 arrayOfThisRow.push($(this).text());
             });
             myTableArray.push(arrayOfThisRow);
@@ -105,11 +103,11 @@ function nuevos() {
 
     var myTableArray = [];
 
-    $("table#tableexample1 tr").each(function () {
+    $("table#tableexample1 tr").each(function() {
         var arrayOfThisRow = [];
         var tableData = $(this).find('td');
         if (tableData.length > 0) {
-            tableData.each(function () {
+            tableData.each(function() {
                 arrayOfThisRow.push($(this).text());
             });
             myTableArray.push(arrayOfThisRow);
@@ -135,7 +133,7 @@ function nuevos() {
 
     let total = Number(opcionSeleccionada.value) * Number(cant.value);
 
-    
+
 
     const splitString = (opcionSeleccionada.text).split(":");
 
@@ -146,30 +144,32 @@ function nuevos() {
     $('#prin').append(
 
 
-        "<tr class='rr'> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + splitString[0] + "' id='id" + aa + "' name= 'id" + aa +
-        "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + splitString[1] + "' id='txt" + aa + "' name= 'txt" + aa + 
-        "'></td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +  
-         "'</td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +  
-         "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
-         "' </td>  <td class='tt'><input type='text' class='form-control' readonly='readonly'  value='" + final.value + "' id='est" + aa + "' name= 'est" + aa +
-        "'</td>  </tr>"
+        "<tr class='rr'> <td class='tt'><center>  <input type='checkbox' class='form-check-input' id='aa" + aa + "' name='aa" + aa + "' checked> </center> </td> <td class='tt'><input type='text' class='form-control' readonly='readonly' size='1' value='" + splitString[0] + "' id='id" + aa + "' name= 'id" + aa +
+        "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + splitString[1] + "' id='txt" + aa + "' name= 'txt" + aa +
+        "'></td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +
+        "'</td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +
+        "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
+        "' </td>  <td class='tt'> <select name='est" + aa + "' id='est" + aa + "' class='form-control'> <option value='" + final.value + "'> " + final.value + " </option> <optgroup label='Cambiar Opcion'> <option value='Entregado'>Entregado</option>  <option value='Pendiente'>Pendiente</option></optgroup> </select></td>  </tr>"
     )
 }
 
+/*  
+2 LINEAS
 
-
-
+"' </td>  <td class='tt'><input type='text' class='form-control' readonly='readonly'  value='" + final.value + "' id='est" + aa + "' name= 'est" + aa +
+        "'</td>  </tr>"
+*/
 
 
 function quitar() {
 
     var myTableArray = [];
 
-    $("table#tableexample1 tr").each(function () {
+    $("table#tableexample1 tr").each(function() {
         var arrayOfThisRow = [];
         var tableData = $(this).find('td');
         if (tableData.length > 0) {
-            tableData.each(function () {
+            tableData.each(function() {
                 arrayOfThisRow.push($(this).text());
             });
             myTableArray.push(arrayOfThisRow);
@@ -197,5 +197,3 @@ function quitar() {
     
     ab.value = table;  */
 }
-
-
