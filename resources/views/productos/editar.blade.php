@@ -54,7 +54,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Q</span>
                         </div>
-                        <input type="text" id="precio" name="precio" class="form-control" readonly="readonly" value="{{$prodc->precio}}">
+                        <input type="text" id="precio" name="precio" class="form-control"  value="{{$prodc->precio}}">
                     </div>
                 </div>
             </div><br>

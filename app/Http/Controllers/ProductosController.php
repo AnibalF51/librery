@@ -85,7 +85,7 @@ class ProductosController extends Controller
         
         $modproducto->nombre = $request->nompro;
         $modproducto->descripcion = $request->descripcion;
-        $modproducto->categoria = $request->categoria;
+        
         $modproducto->precio = $request->precio;
         $modproducto->existencia = $request->existencia;
         $modproducto->save();

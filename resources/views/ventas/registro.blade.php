@@ -190,7 +190,16 @@
                                 </tfoot>
                             </table>
                         </div>
-
+                        <div class="row">
+                                    <div class="form-group col-sm-10" style="text-align:right ">
+                                        <label style="font-size:150%">Total</label>
+                                       
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                    <input type="number" name="cal" class="form-control" id="cal" readonly="readonly">
+                                    </div>
+                                    
+                                </div>
                         <button type="submit" class="btn btn-primary col-sm-12"><i class="fas fa-save"></i>
                             Registrar</button>
                     </form>
@@ -204,4 +213,5 @@
     </section>
     <script src="{{ asset('js/registros.js') }}"></script>
     <script src="{{ asset('js/enviar.js') }}"></script>
+    <script src="{{ asset('js/calculos.js') }}"></script>
 @endsection

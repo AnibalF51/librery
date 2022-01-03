@@ -19,7 +19,12 @@ use App\Http\Controllers\CambiosController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+
+Route::get('/acercade', function(){
+    return view('acercade');
+})->name('acercade');
+
 //USUARIOS
 Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
     return view('index');

@@ -43,7 +43,7 @@
                     <a href="{{ route('dashboard') }}" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Acerca de</a>
+                    <a href="{{ route('acercade') }}" class="nav-link">Acerca de</a>
                 </li>
             </ul>
         </nav>
@@ -52,10 +52,9 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <!-- <img src="dist/img/logo_white.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8"> -->
-                <span class="brand-text font-weight-light">Primicia</span>
+            <a href="{{ route('index') }}" class="brand-link" style="margin-bottom:3px margin-top: 2px">
+                 <img src="{{ asset('dist/img/tt.png') }}" alt="AdminLTE Logo" width="30" height="30" class="brand-image img-rectangle "
+                    style="opacity: .8 "> <label style="opacity:.9">     .</label>
             </a>
 
             <!-- Sidebar -->
@@ -65,7 +64,7 @@
                     <!-- <div class="image">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>  -->
-                    <div class="info">
+                    <div class="info" style="font-size:125%">
                         <a href="{{ route('profile') }}" class="d-block">{{ auth()->user()->name }}</a>
                     </div>
                 </div>
@@ -189,7 +188,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2021 </strong>
+            <strong>Copyright &copy; 2022 </strong>
             / Primicia
 
             <div class="float-right d-none d-sm-inline-block">
