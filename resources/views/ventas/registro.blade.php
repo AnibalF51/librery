@@ -118,8 +118,7 @@
                                     <div class="form-group col-sm-1">
                                         <label for="cantidad">Precio/u</label>
 
-                                        <input type="number" name="cantidad" class="form-control" id="pres"
-                                            readonly="readonly">
+                                        <input type="number" name="cantidad" class="form-control" id="pres" min="1" max="10" readonly="readonly">
 
 
                                     </div>

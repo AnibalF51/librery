@@ -148,11 +148,25 @@ function nuevos() {
         "'></td> <td class='tt'> <input type='text' class='form-control' readonly='readonly'  value='" + splitString[1] + "' id='txt" + aa + "' name= 'txt" + aa +
         "'></td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + cant.value + "' id='cant" + aa + "' name= 'cant" + aa +
         "'</td>  <td class='tt'><input type='number' class='form-control' size='2' value='" + opcionSeleccionada.value + "' id='pu" + aa + "' name= 'pu" + aa +
-        "'</td>  <td class='tt'><input type='text' class='form-control' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
+        "'</td>  <td class='tt'><input type='text' class='form-control calcu' readonly='readonly' size='2' value='" + total + "' id='tt" + aa + "' name= 'tt" + aa +
         "' </td>  <td class='tt'> <select name='est" + aa + "' id='est" + aa + "' class='form-control'> <option value='" + final.value + "'> " + final.value + " </option> <optgroup label='Cambiar Opcion'> <option value='Entregado'>Entregado</option>  <option value='Pendiente'>Pendiente</option></optgroup> </select></td>  </tr>"
     )
+
+    callc();
 }
 
+
+function callc() {
+    let elementos = document.getElementsByClassName('calcu');
+    let total = 0;
+    for (let i of elementos) {
+        total = parseFloat(total) + parseFloat(i.value);
+
+        //console.log(i.value);
+    }
+    //console.log(total);
+    document.getElementById('cal').value = total;
+}
 /*  
 2 LINEAS
 
