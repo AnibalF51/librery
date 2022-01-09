@@ -72,3 +72,6 @@ Route::post('ventas/prango', [VentasController::class, 'prango'])->name('ventas.
 Route::get('cambios/list', [CambiosController::class, 'list'])->name('cambios.list');
 Route::get('cambios/registro', [CambiosController::class, 'registro'])->name('cambios.registro');
 Route::post('cambios/guardar', [CambiosController::class, 'guardar'])->name('cambios.guardar');
+
+//USUARIOS
+Route::resource('usuarios', UserController::class)->only(['index','edit','update'])->names('usuarios');

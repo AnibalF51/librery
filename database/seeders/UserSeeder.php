@@ -18,6 +18,6 @@ class UserSeeder extends Seeder
             'name'=> 'Raider',
             'email'=>'raider@gmail.com',
             'password'=>  bcrypt('12345678')
-        ]);
+        ]) ->assignRole($role1);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -36,6 +38,12 @@ class UserController extends Controller
     {
         //
     }
+    public function index()
+    {
+
+        $users = User::all();
+        return view('livewire/users-index', compact('users'));
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -67,7 +75,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $roles = Role::all();
+        $user = User::findOrFail($id);
+        return view('usuarios/editar', compact('user','roles'));
     }
 
     /**
@@ -79,9 +89,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $user = User::findOrFail($id);
+        
+        $user->roles()->sync($request->roles);
 
+        return redirect()->route('usuarios.edit', $user)->with('info', 'Se asigno el rol correctamente');
+    }
     /**
      * Remove the specified resource from storage.
      *

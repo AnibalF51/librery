@@ -159,6 +159,24 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-fw fa-users"></i>
+                                <p>
+                                    Usuarios
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('usuarios.index') }}" class="nav-link">
+                                        <i class="fas fa-fw fa-clipboard-list"></i>
+                                        <p>Lista de usuarios</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">
@@ -188,7 +206,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2022 </strong>
+            <strong>Copyright &copy; 2021 - 2022 </strong>
             / Primicia
 
             <div class="float-right d-none d-sm-inline-block">
