@@ -1,6 +1,7 @@
 @extends('plantilla')
 
 
+@can('productos.registro')
 @section('contenido')
 
 <br>
@@ -96,3 +97,5 @@
 
 
 @endsection
+
+@endcan

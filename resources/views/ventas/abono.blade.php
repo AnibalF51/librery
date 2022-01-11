@@ -1,4 +1,7 @@
 @extends('plantilla')
+
+@can('ventas.abono')
+
 @section('contenido')
     <form action="{{ route('ventas.gabono',$fac->id) }}" method="POST" enctype="multipart/form-data" id="todo">
 
@@ -135,3 +138,6 @@
 
     </form>
 @endsection
+
+    
+@endcan

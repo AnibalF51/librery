@@ -1,4 +1,5 @@
 @extends('plantilla')
+@can('ventas.anular')
 @section('contenido')
 
 <div class="card card-primary card-outline">
@@ -120,3 +121,5 @@
 
 
 @endsection
+
+@endcan

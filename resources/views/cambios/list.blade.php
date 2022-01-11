@@ -1,4 +1,5 @@
 @extends('plantilla')
+@can('cambios.list')
 @section('contenido')
 
 <br>
@@ -66,3 +67,5 @@
 
 
 @endsection
+
+@endcan

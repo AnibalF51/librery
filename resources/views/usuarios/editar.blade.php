@@ -1,6 +1,7 @@
 @extends('plantilla')
 
 
+@can('usuarios.edit')
 @section('contenido')
 
 <br>
@@ -46,13 +47,6 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        
-                        
-
-
-
-
-
 
                 </div>
                 <!-- /.col -->
@@ -64,3 +58,5 @@
 
 
 @endsection
+
+@endcan

@@ -58,5 +58,8 @@ class RoleSeeder extends Seeder
         
 
         //ROLES Y PERMISOS
+        Permission::create(['name' => 'usuarios.index']) -> syncRoles([$role1]);
+        Permission::create(['name' => 'usuarios.edit']) -> syncRoles([$role1]);
+        Permission::create(['name' => 'usuarios.update']) -> syncRoles([$role1]);
     }
 }

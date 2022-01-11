@@ -75,6 +75,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
+                        @can('productos.index')
                         <li class="nav-item">
                             <a href="#" class="nav-link ">
                                 <i class="fas fa-fw fa-tags"></i>
@@ -84,22 +85,28 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @can('productos.registro')
                                 <li class="nav-item">
                                     <a href="{{ route('productos.registro') }}" class="nav-link">
                                         <i class="fas fa-fw fa-pen"></i>
                                         <p>Registro</p>
                                     </a>
                                 </li>
+                                @endcan
+                                @can('productos.index')
                                 <li class="nav-item">
                                     <a href="{{ route('productos.index') }}" class="nav-link ">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Productos</p>
                                     </a>
                                 </li>
+                                @endcan
 
                             </ul>
                         </li>
+                        @endcan
 
+                        @can('ventas.list')
                         <li class="nav-item ">
                             <a href="#" class="nav-link ">
                                 <i class="fas fa-fw fa-shopping-cart"></i>
@@ -109,33 +116,44 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('ventas.registro') }}" class="nav-link">
-                                        <i class="fas fa-fw fa-pen"></i>
-                                        <p>Registro</p>
-                                    </a>
-                                </li>
+                               @can('ventas.registro')
+                               <li class="nav-item">
+                                <a href="{{ route('ventas.registro') }}" class="nav-link">
+                                    <i class="fas fa-fw fa-pen"></i>
+                                    <p>Registro</p>
+                                </a>
+                            </li>
+                               @endcan
+                                @can('ventas.list')
                                 <li class="nav-item">
                                     <a href="{{ route('ventas.list') }}" class="nav-link">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Ventas</p>
                                     </a>
                                 </li>
+                                @endcan
+                                @can('ventas.labono')
                                 <li class="nav-item">
                                     <a href="{{ route('ventas.labono') }}" class="nav-link">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Abonos</p>
                                     </a>
                                 </li>
+                                @endcan
 
+                                @can('ventas.reportes')
                                 <li class="nav-item">
                                     <a href="{{ route('ventas.reportes') }}" class="nav-link">
                                         <i class="fas fa-fw fa-file"></i>
                                         <p>Reportes</p>
                                     </a>
                                 </li>
+                                @endcan
                             </ul>
                         </li>
+                        @endcan
+
+                        @can('cambios.list')
                         <li class="nav-item">
                             <a href="#" class="nav-link ">
                                 <i class="fas fa-fw fa-exchange-alt"></i>
@@ -145,20 +163,26 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @can('cambios.registro')
                                 <li class="nav-item">
                                     <a href="{{ route('cambios.registro') }}" class="nav-link">
                                         <i class="fas fa-fw fa-pen"></i>
                                         <p>Registro</p>
                                     </a>
                                 </li>
+                                @endcan
+                                @can('cambios.list')
                                 <li class="nav-item">
                                     <a href="{{ route('cambios.list') }}" class="nav-link">
                                         <i class="fas fa-fw fa-clipboard-list"></i>
                                         <p>Listado de Cambios</p>
                                     </a>
                                 </li>
+                                @endcan
                             </ul>
                         </li>
+                        @endcan
+                        @can('usuarios.index')
                         <li class="nav-item">
                             <a href="#" class="nav-link ">
                                 <i class="fas fa-fw fa-users"></i>
@@ -177,6 +201,7 @@
                                 
                             </ul>
                         </li>
+                        @endcan
 
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">

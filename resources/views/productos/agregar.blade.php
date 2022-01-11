@@ -1,5 +1,6 @@
 @extends('plantilla')
 
+@can('productos.agregar')
 @section('contenido')
 <section class="content">
     <div class="container-fluid">
@@ -89,3 +90,4 @@
     <!-- /.container-fluid -->
 
     @endsection
+@endcan
